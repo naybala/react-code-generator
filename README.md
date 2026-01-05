@@ -23,7 +23,7 @@ This tool is designed to streamline the project architecture by scaffolding out 
 Install via npm (recommended as a dev dependency):
 
 ```bash
-npm install react-code-generator --save-dev
+npm install @naybala/react-code-generator --save-dev
 ```
 
 Add a script to your `package.json`:
