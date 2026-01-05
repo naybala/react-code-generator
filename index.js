@@ -120,6 +120,20 @@ function buildTableColumns(fields) {
     .join("\n  ");
 }
 
+function mapTsType(type) {
+  switch (type) {
+    case "number":
+      return "number";
+    case "boolean":
+      return "boolean";
+    case "text":
+    case "string":
+      return "string";
+    default:
+      return "any";
+  }
+}
+
 function processTemplate(content, r) {
   return content
     .replace(/__PascalName__/g, r.pascalName)
@@ -131,7 +145,20 @@ function processTemplate(content, r) {
     .replace(/__schemaFields__/g, r.schemaFields)
     .replace(/__formInputs__/g, r.formInputs)
     .replace(/__tableColumns__/g, r.tableColumns)
-    .replace(/__kebabName__/g, r.kebabName);
+    .replace(/__kebabName__/g, r.kebabName)
+    .replace(/__allFields__/g, r.allFields)
+    .replace(/__indexFields__/g, r.indexFields);
+}
+
+function buildIndexTypeFields(fields) {
+  return fields
+    .filter((f) => f.type !== "text")
+    .map((f) => `  ${f.name}: ${mapTsType(f.type)};`)
+    .join("\n");
+}
+
+function buildAllTypeFields(fields) {
+  return fields.map((f) => `  ${f.name}: ${mapTsType(f.type)};`).join("\n");
 }
 
 async function generate(template, dest, replacements) {
@@ -180,6 +207,8 @@ async function main() {
     schemaFields: buildSchemaFields(fields),
     formInputs: buildFormInputs(fields),
     tableColumns: buildTableColumns(fields),
+    allFields: buildAllTypeFields(fields),
+    indexFields: buildIndexTypeFields(fields),
   };
 
   const featureDir = path.join(projectRoot, "src", "features", pluralName);
@@ -210,6 +239,13 @@ async function main() {
       },
       { t: "schema/schema.ts", d: `schema/${camelName}.schema.ts` },
       { t: "index.ts", d: "index.ts" },
+      // Language
+      { t: "i18n/en.js", d: `locales/en/en.${pluralName}.js` },
+      { t: "i18n/mm.js", d: `locales/en/mm.${pluralName}.js` },
+      //Types
+      { t: "types/types.ts", d: `types/${pluralName}.ts` },
+      //Routes
+      { t: "routes/routes.ts", d: `routes/${camelName}Routes.ts` },
     ];
 
     for (const f of files) {
