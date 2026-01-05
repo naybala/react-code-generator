@@ -10,7 +10,7 @@ import { use__PascalName__Mutations } from "../mutations/use__PascalName__Mutati
 import { useAppToast } from "@/hooks/useAppToast";
 import { usePermissionStore } from "@stores/permission";
 import { TableColumn, TableAction } from "@/components/common/BaseTable";
-import { __PascalName__ } from "@/types/__pluralCamel__";
+import { __PascalName__ } from "@/types/__plural__";
 
 export function use__PascalName__Table() {
   const navigate = useNavigate();

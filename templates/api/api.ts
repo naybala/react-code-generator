@@ -7,7 +7,7 @@ export const __PascalName__API = {
     if (params) {
       Object.keys(params).forEach((key) => {
         if (params[key] !== undefined && params[key] !== null) {
-          searchParams.append(key, params[key]);
+          searchParams.append(key, String(params[key]));
         }
       });
     }
@@ -23,7 +23,7 @@ export const __PascalName__API = {
     apiRequest(`/__kebabName__/${id}`, { method: "GET" }),
 
   create: (body: any) =>
-    apiRequest("/__kebabName__", {
+    apiRequest(`/__kebabName__`, {
       method: "POST",
       body,
     }),

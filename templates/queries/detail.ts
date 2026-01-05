@@ -1,5 +1,5 @@
 import { useQuery } from "@tanstack/react-query";
-import { __PascalName__API } from "../api/__camelName__.api";
+import { __PascalName__API } from "../api/api";
 import { __camelName__Keys } from "./__camelName__.keys";
 
 export function use__PascalName__Detail(id?: string | number) {
