@@ -1,6 +1,6 @@
 import React from "react";
 import { SidebarRouteObject } from "@/types/sidebar";
-import ProtectedRoute from "@/routes/ProtectedRoute";
+import ProtectedRoute from "@/routers/ProtectedRoute";
 import { BaseLoader } from "@/components/common/BaseLoader";
 
 const __PascalName__List = React.lazy(

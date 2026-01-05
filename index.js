@@ -240,12 +240,12 @@ async function main() {
       { t: "schema/schema.ts", d: `schema/${camelName}.schema.ts` },
       { t: "index.ts", d: "index.ts" },
       // Language
-      { t: "i18n/en.js", d: `locales/en/en.${pluralName}.js` },
-      { t: "i18n/mm.js", d: `locales/en/mm.${pluralName}.js` },
+      { t: "i18n/en.js", d: `../../../locales/en/${pluralName}.js` },
+      { t: "i18n/mm.js", d: `../../../locales/mm/${pluralName}.js` },
       //Types
-      { t: "types/types.ts", d: `types/${pluralName}.ts` },
+      { t: "types/types.ts", d: `../../../types/${pluralName}.ts` },
       //Routes
-      { t: "routes/routes.ts", d: `routes/${camelName}Routes.ts` },
+      { t: "routes/routes.ts", d: `../../../routers/${camelName}Routes.ts` },
     ];
 
     for (const f of files) {
