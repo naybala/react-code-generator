@@ -23,7 +23,7 @@ export function use__PascalName__Form(id?: string) {
     use__PascalName__Mutations();
 
   const [form, setForm] = useState<__PascalName__FormInput>({
-    __formFields__
+    __formFields__,
   });
 
   const [errors, setErrors] = useState<Record<string, string>>({});
@@ -35,7 +35,7 @@ export function use__PascalName__Form(id?: string) {
     const data = (detailData as any)?.data;
     if (data) {
       setForm({
-        __editFormFields__
+        __editFormFields__,
       });
     }
   }, [detailData]);

@@ -123,7 +123,26 @@ export function use__PascalName__Table() {
   /**
    * Table actions
    */
-  const actions: TableAction[] = [__tableActions__];
+  const actions: TableAction[] = [
+    {
+      icon: "pi pi-eye",
+      tooltip: "View",
+      permission: permissionStore.hasPermission("__plural__.show"),
+      handler: handleView,
+    },
+    {
+      icon: "pi pi-pencil",
+      tooltip: "Edit",
+      permission: permissionStore.hasPermission("__plural__.edit"),
+      handler: handleEdit,
+    },
+    {
+      icon: "pi pi-trash",
+      tooltip: "Delete",
+      permission: permissionStore.hasPermission("__plural__.delete"),
+      handler: handleDelete,
+    },
+  ];
 
   return {
     t,
