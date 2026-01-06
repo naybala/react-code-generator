@@ -231,7 +231,7 @@ async function main() {
       { t: "components/Form.tsx", d: `components/${pascalName}Form.tsx` },
       { t: "components/Table.tsx", d: `components/${pascalName}Table.tsx` },
       { t: "queries/keys.ts", d: `queries/${camelName}.keys.ts` },
-      { t: "queries/list.ts", d: `queries/use${pluralPascalName}List.ts` },
+      { t: "queries/list.ts", d: `queries/use${pascalName}List.ts` },
       { t: "queries/detail.ts", d: `queries/use${pascalName}Detail.ts` },
       {
         t: "mutations/mutations.ts",
@@ -240,12 +240,12 @@ async function main() {
       { t: "schema/schema.ts", d: `schema/${camelName}.schema.ts` },
       { t: "index.ts", d: "index.ts" },
       // Language
-      { t: "i18n/en.js", d: `../../../locales/en/${pluralName}.js` },
-      { t: "i18n/mm.js", d: `../../../locales/mm/${pluralName}.js` },
+      { t: "i18n/en.js", d: `../../src/locales/en/${pluralName}.js` },
+      { t: "i18n/mm.js", d: `../../src/locales/mm/${pluralName}.js` },
       //Types
-      { t: "types/types.ts", d: `../../../types/${pluralName}.ts` },
+      { t: "types/types.ts", d: `../../src/types/${pluralName}.ts` },
       //Routes
-      { t: "routes/routes.ts", d: `../../../routers/${camelName}Routes.ts` },
+      { t: "routes/routes.ts", d: `../../src/routers/${camelName}Routes.ts` },
     ];
 
     for (const f of files) {
